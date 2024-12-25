@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Add Book</title>
+</h:head>
+<h:body>
+    <h1>Add a New Book</h1>
+    <h:form>
+        <h:outputLabel for="title" value="Title: " />
+        <h:inputText id="title" value="#{bookBean.newBook.title}" /><br />
+        <h:outputLabel for="author" value="Author: " />
+        <h:inputText id="author" value="#{bookBean.newBook.author}" /><br />
+        <h:commandButton value="Save" action="#{bookBean.addBook}" />
+    </h:form>
+</h:body>
+</html>

@@ -52,6 +52,45 @@
             <artifactId>mysql-connector-j</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.joinfaces</groupId>
+            <artifactId>jsf-spring-boot-starter</artifactId>
+            <version>4.6.6</version> <!-- Use the latest stable version -->
+        </dependency>
+
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>javax.faces-api</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>jakarta.faces</artifactId>
+            <version>2.3.17</version> <!-- Use the latest stable version -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.joinfaces</groupId>
+            <artifactId>jsf-spring-boot-starter</artifactId>
+            <version>5.0.0</version> <!-- or latest -->
+        </dependency>
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>12.0.0</version>
+        </dependency>
+
     </dependencies>
 
 </project>

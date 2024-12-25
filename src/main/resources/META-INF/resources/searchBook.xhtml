@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Search Book</title>
+</h:head>
+<h:body>
+    <h1>Search Book</h1>
+    <h:form>
+        <h:outputLabel for="bookId" value="Book ID: " />
+        <h:inputText id="bookId" value="#{bookBean.searchBookId}" /><br />
+        <h:commandButton value="Search" action="#{bookBean.searchBook}" />
+    </h:form>
+    <h:panelGroup rendered="#{not empty bookBean.searchResult}">
+        <h3>Search Result</h3>
+        <p>Title: #{bookBean.searchResult.title}</p>
+        <p>Author: #{bookBean.searchResult.author}</p>
+    </h:panelGroup>
+</h:body>
+</html>
