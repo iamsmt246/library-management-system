@@ -42,7 +42,8 @@ public class BookService {
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{bookId}")
-                .buildAndExpand().toUri();
+                .buildAndExpand(newBook.getBookId())
+                .toUri();
 
         return ResponseEntity.created(location).build();
     }
@@ -55,14 +56,34 @@ public class BookService {
     }
 
     public ResponseEntity<Book> updateBook(Book book, long bookId) {
-        Book updatedBook = new Book();
-        Optional<Book> savedBook = bookRepository.findById(bookId);
-        Book updateBook = savedBook.get();
+        Book bookToBeUpdated = getBookById(bookId);
 
-        if(savedBook.isPresent()){
-            BeanUtils.copyProperties(book, updatedBook);
+        if(bookToBeUpdated != null){
+            // Manually updating only non-null fields
+            if (book.getTitle() != null) {
+                bookToBeUpdated.setTitle(book.getTitle());
+            }
+            if (book.getAuthor() != null) {
+                bookToBeUpdated.setAuthor(book.getAuthor());
+            }
+            if (book.getIsbn() != null) {
+                bookToBeUpdated.setIsbn(book.getIsbn());
+            }
+            if (book.getGenre() != null) {
+                bookToBeUpdated.setGenre(book.getGenre());
+            }
+            if (book.getTotalQuantity() != null) {
+                bookToBeUpdated.setTotalQuantity(book.getTotalQuantity());
+            }
+            if (book.getAvailableQuantity() != null) {
+                bookToBeUpdated.setAvailableQuantity(book.getAvailableQuantity());
+            }
         }
-        updatedBook = bookRepository.save(updateBook);
+
+        // Saving the updated book
+        Book updatedBook = bookRepository.save(bookToBeUpdated);
+
+        // Returning the updated book in the response
         return new ResponseEntity<Book>(updatedBook,HttpStatus.OK);
     }
 }
