@@ -3,7 +3,6 @@ package com.libraryManagement.application.service;
 import com.libraryManagement.application.entity.Book;
 import com.libraryManagement.application.exception.BookNotFoundException;
 import com.libraryManagement.application.repository.BookRepository;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
