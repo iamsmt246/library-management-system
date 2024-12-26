@@ -14,13 +14,28 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long bookId;
+    private Long bookId;
 
-    String title;
-    String author;
-    String isbn;
-    String genre;
-    Integer totalQuantity;
-    Integer availableQuantity;
+    private String title;
+    private String author;
+    private String isbn;
+    private String genre;
+    private Integer totalQuantity;
+    private Integer availableQuantity;
 
+    public void lendBook() {
+        if (availableQuantity > 0) {
+            availableQuantity--;
+        } else {
+            throw new RuntimeException("No copies available to lend!");
+        }
+    }
+
+    public void returnBook() {
+        if (availableQuantity < totalQuantity) {
+            availableQuantity++;
+        } else {
+            throw new RuntimeException("All copies are already in the library!");
+        }
+    }
 }

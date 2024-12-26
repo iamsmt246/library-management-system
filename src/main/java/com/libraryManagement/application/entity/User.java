@@ -7,20 +7,26 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class User {
-
+public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long userId;
+    private Long userId;
 
     @Column(unique = true, nullable = false)
-    String name;
-    String email;
+    private String name;
+
+    private String email;
+
     @Enumerated(EnumType.STRING)
-    Role role;
+    private Role role;
 
     // Enum for Role
-    public enum Role {
-        ADMIN, LIBRARIAN, MEMBER
+    enum Role {
+        ADMIN, MEMBER
     }
+
+    // Abstract method for role-based actions
+    public abstract Role getRole();
 }
+
+
